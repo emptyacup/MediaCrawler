@@ -78,6 +78,20 @@ uv run main.py --help
 uv run main.py --platform xhs --lt qrcode --type search
 ```
 
+执行 rumor_crawler 生成的谣言题材跨平台搜索任务：
+
+```powershell
+.\.venv\Scripts\python.exe .\run_topic_tasks.py --tasks-file ..\rumor_crawler\data\topic_search_tasks_all.json --platforms dy,ks,wb,bili,xhs --max-notes-count 3 --limit 20
+```
+
+先预览不实际采集：
+
+```powershell
+.\.venv\Scripts\python.exe .\run_topic_tasks.py --tasks-file ..\rumor_crawler\data\topic_search_tasks_all.json --platforms dy,ks --limit 5 --dry-run
+```
+
+`run_topic_tasks.py` 默认把数据写入相邻项目 `..\rumor_crawler\data\mediacrawler`，并使用 `..\rumor_crawler\state\topic_crawler_checkpoint.json` 断点续跑。平台目录沿用 MediaCrawler 平台代码：`dy/jsonl`、`ks/jsonl`、`wb/jsonl`、`bili/jsonl`、`xhs/jsonl`。
+
 详情采集：
 
 ```powershell
