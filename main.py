@@ -32,6 +32,10 @@ if sys.stderr and hasattr(sys.stderr, 'buffer'):
 import asyncio
 from typing import Optional, Type
 
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
+
 import cmd_arg
 import config
 from database import db

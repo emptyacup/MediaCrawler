@@ -26,10 +26,13 @@ import os
 import sys
 import subprocess
 import uvicorn
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+
+load_dotenv(override=True)
 
 from .routers import crawler_router, data_router, websocket_router
 
